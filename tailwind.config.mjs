@@ -4,7 +4,7 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './node_modules/flowbite/**/*.js'],
 	theme: {
 		fontFamily: {
 			sans: ['"LXGW WenKai GB Screen"', ...defaultTheme.fontFamily.sans],
@@ -18,6 +18,7 @@ export default {
 	plugins: [
 		typography,
 		scrollbar(),
+		require('flowbite/plugin')
 		// taken from https://github.com/tailwindlabs/tailwindcss.com/blob/master/tailwind.config.js
 		// function ({ addVariant }) {
 		// 	addVariant('children', '& > *');

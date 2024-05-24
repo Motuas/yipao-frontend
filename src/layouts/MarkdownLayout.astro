@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { Icon } from 'astro-icon/components';
-import Comments from '~/components/Comments.astro';
 import { Hide, type HideElements } from '~/config';
 import type { PostHideElements } from '~/content/config';
 import ScaffoldLayout from './ScaffoldLayout.astro';
@@ -25,7 +24,7 @@ const showTimes = showDate || showLastmod || showReadingTime;
 
 <ScaffoldLayout {...Astro.props}>
 	{title && show('title') && <h1 class="text-5xl font-extrabold">{title}</h1>}
-	<div class="my-[1dvh] text-neutral-600 lg:my-[3dvh] dark:text-neutral-300">
+	<div class="text-neutral-600 dark:text-neutral-300">
 		{
 			showTimes && (
 				<div class="flex flex-col opacity-70 *:flex *:items-center lg:flex-row lg:gap-4">
@@ -101,14 +100,6 @@ const showTimes = showDate || showLastmod || showReadingTime;
 	>
 		<slot />
 	</article>
-	{
-		show('comments') && (
-			<>
-				<hr class="mx-auto my-4 h-1 w-48 rounded border-0 bg-zinc-200 md:my-10 dark:bg-zinc-700" />
-				<Comments />
-			</>
-		)
-	}
 </ScaffoldLayout>
 <script is:inline type="module">
 	const copy = async (copyButton) => {

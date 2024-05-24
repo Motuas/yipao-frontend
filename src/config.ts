@@ -1,11 +1,11 @@
 import type { PostHideElements } from '~/content/config';
 
 export const Site = 'https://astro-blog-zozo.pages.dev';
-export const SiteLanguage = 'zh';
-export const SiteTitle = '无尽光芒';
-export const SiteDescription = '踏歌长行，梦想永在';
-export const FooterDescription = '肆意闪耀';
-export const AdminName = 'Ladit';
+export const SiteLanguage = 'es';
+export const SiteTitle = 'Yipao';
+export const SiteDescription = 'Social';
+export const FooterDescription = 'Made with ♥';
+export const AdminName = 'Dannkol';
 export const PageSize = 15;
 
 // socialPlatform => userName
@@ -13,7 +13,7 @@ export const PageSize = 15;
 export const Socials: Record<string, Record<string, string>> = {
 	mail: { url: 'mailto:i@ladit.me' },
 	github: { url: 'https://github.com/ladit/astro-blog-zozo' },
-	x: { url: 'https://x.com/userName' },
+/* 	x: { url: 'https://x.com/userName' },
 	mastodon: { url: 'https://mastodon.social/@userName' },
 	facebook: { url: 'https://facebook.com/userName' },
 	instagram: { url: 'https://instagram.com/userName' },
@@ -21,16 +21,16 @@ export const Socials: Record<string, Record<string, string>> = {
 	youtube: { url: 'https://youtube.com/@userName' },
 	skype: { url: 'https://skype.com/userName' },
 	slack: { url: 'https://slack.com/userName' },
-	messenger: { url: 'https://messenger.com/userName' },
+	messenger: { url: 'https://messenger.com/userName' }, */
 	whatsapp: { url: 'https://whatsapp.com/userName' },
-	snapchat: { url: 'https://snapchat.com/userName' },
+	/* snapchat: { url: 'https://snapchat.com/userName' },
 	line: { url: 'https://line.com/userName' },
 	twitch: { url: 'https://twitch.com/userName' },
 	weibo: { url: 'https://weibo.com/userName' },
 	bilibili: { url: 'https://space.bilibili.com/userName' },
 	dingding: { url: 'https://dingtalk.com/userName' },
 	zhihu: { url: 'https://zhihu.com/userName' },
-	douban: { url: 'https://douban.com/userName' },
+	douban: { url: 'https://douban.com/userName' }, */
 	rss: { url: '/rss.xml' },
 };
 
@@ -46,7 +46,7 @@ export const GiscusConfig: Record<string, string> = {
 	'data-reactions-enabled': '1',
 	'data-emit-metadata': '0',
 	'data-input-position': 'top',
-	'data-lang': 'zh-CN',
+	'data-lang': 'es-ES',
 	'data-loading': 'lazy',
 	crossorigin: 'anonymous',
 	async: '',

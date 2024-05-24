@@ -1,0 +1,123 @@
+---
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!-- Modal toggle -->
+<button
+    id="button"
+    data-modal-target="authentication-modal"
+    data-modal-toggle="authentication-modal"
+    class="flex-none w-40 h-12 uppercase font-medium tracking-wider border black:text-white light:border-slate-900 light:bg-slate-900 light:text-black"
+    type="button"
+>
+    {title}
+</button>
+
+<!-- Main modal -->
+<div
+    id="defaultModal"
+    id="authentication-modal"
+    tabindex="-1"
+    aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+>
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div
+            class="relative bg-white p-[3dvw] shadow-[0_0.5em_1em_0_rgba(236,236,236,0.86)] lg:p-[2dvw] dark:bg-[#212223] dark:shadow-[0_0_0.5em_0.25em_rgba(136,136,136,0.35)] dark:bg-neutral-800"
+        >
+            <!-- Modal header -->
+            <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:bg-neutral-800"
+            >
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    Sign in to our platform
+                </h3>
+            </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5">
+                <form class="space-y-4" action="#">
+                    <div>
+                        <label
+                            for="email"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            >Your email</label
+                        >
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                            placeholder="name@company.com"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label
+                            for="password"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            >Your password</label
+                        >
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="••••••••"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                            required
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        class="flex-none w-60 h-12 uppercase font-medium tracking-wider border black:text-white light:border-slate-900 light:bg-slate-900 light:text-black"
+                        >Login to your account</button
+                    >
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    import { Modal } from "flowbite";
+
+    // select the two elements that we'll work with
+    const $buttonElement: HTMLElement | null =
+        document.querySelector("#button");
+    const $modalElement: HTMLElement | null =
+        document.querySelector("#defaultModal");
+
+    // create a new modal component
+    const modal = new Modal($modalElement);
+
+    // toggle the visibility of the modal when clicking on the button
+    if ($buttonElement) {
+        $buttonElement.addEventListener("click", () => modal.toggle());
+    }
+
+    const $form : HTMLFormElement | null = 
+        document.querySelector('form')
+    
+        if ($form) {
+            $form.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+                
+                const formData = new FormData($form);
+                const data: { [key: string]: FormDataEntryValue } = {};
+                
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+                
+                console.log(data); // Aquí tienes los datos del formulario en forma de objeto
+                
+                // Puedes hacer lo que necesites con los datos aquí
+                // Por ejemplo, enviarlos a tu servidor usando fetch o axios
+            });
+        }
+
+</script>
