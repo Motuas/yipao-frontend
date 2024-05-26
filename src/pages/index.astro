@@ -1,11 +1,11 @@
 ---
 import { Picture } from "astro:assets";
 import img from "~/assets/Untitled.svg";
-import arrow from "~/assets/arrow-down.svg";
 import { SiteDescription, SiteTitle } from "~/config";
 import MarkdownLayout from "~/layouts/MarkdownLayout.astro";
 import Footer from "~/components/Footer.astro";
 import ButtomModal from "~/components/ButtomModalLogin.astro";
+import Dialogflow from "~/components/Dialogflow.astro";
 ---
 
 <MarkdownLayout
@@ -47,133 +47,15 @@ import ButtomModal from "~/components/ButtomModalLogin.astro";
         <Footer />
     </div>
     <div>
-        <link
-            rel="stylesheet"
-            href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css"
-        />
-        <script
-            src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"
-        ></script>
-        <df-messenger
-            oauth-client-id="825961708967-tiasdinvr7789tk0qurrlabiuqtgep7v.apps.googleusercontent.com"
-            location="us-central1"
-            project-id="gen-lang-client-0867205962"
-            agent-id="982e6fd5-07ff-4b1a-9d13-8795b4597f14"
-            language-code="en"
-            max-query-length="-1"
-        >
-            <df-messenger-chat-bubble
-                chat-title="Agente 21 may 2024, 8:47:36 p.m."
-            >
-            </df-messenger-chat-bubble>
-        </df-messenger>
-
-        <div class="arrow">
-            <Picture
-                style="color:white"
-                src={arrow}
-                formats={["avif", "webp"]}
-                alt="a arrow"
-                loading="eager"
-            />
-        </div>
-
-        <style>
-            df-messenger {
-                z-index: 999;
-                position: fixed;
-                bottom: 16px;
-                right: 16px;
-                color: antiquewhite;
-            }
-            df-messenger-chat-bubble::part(button) {
-                background: rgb(
-                    0,
-                    0,
-                    0
-                ); /* Cambia el color de fondo del botón */
-                color: white; /* Cambia el color del texto del botón */
-            }
-            .arrow {
-                position: fixed;
-                bottom: 40px; /* Adjust as needed */
-                right: 50px; /* Adjust as needed */
-                z-index: 10;
-                transform: rotate(320deg);
-                animation: bounce 2s infinite;
-            }
-            .arrow img {
-                width: 100px; /* Adjust the size of the arrow image as needed */
-                height: auto;
-            }
-            @keyframes bounce {
-                0%,
-                100% {
-                    transform: translateX(0) translateY(10px) rotate(322deg);
-                }
-                50% {
-                    transform: translateX(-20px) translateY(-20px)
-                        rotate(322deg); /* Ajusta la altura del salto */
-                }
-            }
-
-            .footer {
-                margin: 0px;
-                padding: 0px;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-            }
-        </style>
+        <Dialogflow />
     </div>
-    <script>
-        window.addEventListener("DOMContentLoaded", (event) => {
-            const chat_bubble = document.querySelector(
-                "df-messenger-chat-bubble"
-            );
-
-            if (chat_bubble) {
-                const shadowRootBubble = chat_bubble.shadowRoot;
-
-                if (shadowRootBubble) {
-                    const messenger_chat =
-                        shadowRootBubble.querySelector("df-messenger-chat");
-                    const button = shadowRootBubble.querySelector(".bubble");
-                    const titlebar_wrapper = messenger_chat?.querySelector(
-                        "df-messenger-titlebar"
-                    );
-                    const shadowRootTitle = titlebar_wrapper?.shadowRoot;
-                    const titlebar =
-                        shadowRootTitle?.querySelector(".titlebar-wrapper");
-                    if (
-                        button instanceof HTMLElement &&
-                        titlebar instanceof HTMLElement
-                    ) {
-                        titlebar.style.backgroundColor = "black";
-                        titlebar.style.color = "white";
-                        console.log(titlebar, button);
-                        button.style.backgroundColor = "black"; // Cambia el color de fondo del botón
-                        button.style.color = "white"; // Cambia el color del texto del botón
-                    }
-                }
-            }
-        });
-
-        document.addEventListener("df-request-sent", function (event) {
-            console.log(event);
-            if (event instanceof CustomEvent) {
-                const originalMessage =
-                    event.detail.data.requestBody.queryInput.text.text;
-                const additionalMessage = " [mensaje por defecto]"; // Define tu mensaje por defecto aquí
-                const modifiedMessage = originalMessage + additionalMessage;
-
-                // Modificar el mensaje en el evento antes de enviarlo
-                event.detail.data.requestBody.queryInput.text.text =
-                    modifiedMessage;
-
-                console.log("Mensaje original:", originalMessage);
-                console.log("Mensaje modificado:", modifiedMessage);
-            }
-        });
-    </script>
+    <style>
+        .footer {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </MarkdownLayout>
