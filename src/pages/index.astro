@@ -1,6 +1,6 @@
 ---
 import { Picture } from "astro:assets";
-import img from "~/assets/Untitled.svg";
+import img from "~/assets/banner.png";
 import { SiteDescription, SiteTitle } from "~/config";
 import MarkdownLayout from "~/layouts/MarkdownLayout.astro";
 import Footer from "~/components/Footer.astro";
@@ -15,34 +15,33 @@ import Dialogflow from "~/components/Dialogflow.astro";
     currentNav="Home"
 >
     <div class="flex flex-col items-center gap-4 xl:flex-row">
-        <Picture
-            class="lg:max-w-md"
-            src={img}
-            formats={["avif", "webp"]}
-            alt="a dog"
-            loading="eager"
-        />
+        <div class="banner">
+            <Picture
+                class="lg:max-w-md"
+                src={img}
+                formats={["avif", "webp"]}
+                alt="a dog"
+                loading="eager"
+            />
+            <ButtomModal title="Try now" />
+        </div>
         <div>
-            <h1>Bienvenidos! Somos yipao👋</h1>
+            <h1>Welcome to yipao! We are yipao👋</h1>
             <p>
-                Yipao es una herramienta desarrollada por el equipo de <a
+                Yipao is a tool developed by the facilpos team <a
                     href="https://astro.build">facilpos</a
-                > Con el objetivo de potenciar nuestro sistema pos integrando un
-                agente para business intelligence (BI), de forma sencilla y poderosa
-                características:
+                > with the aim of enhancing our POS system by integrating an agent
+                for business intelligence (BI) with simple and powerful features:
             </p>
-            <ul class="list-disc">
-                <li>Entendimiento de la base de datos sql.</li>
-                <li>Ejecucion de consultas sql.</li>
-                <li>Analisis del negocio.</li>
-                <li>Low code y facil uso.</li>
-                <li>
-                    Sugerencias y consejos en base a las consultas realizadas
-                </li>
+            <ul class="list-square">
+                <li>Understanding of the SQL database.</li>
+                <li>Execution of SQL queries.</li>
+                <li>Business analysis.</li>
+                <li>Low code and easy to use.</li>
+                <li>Suggestions and advice based on performed queries.</li>
             </ul>
         </div>
     </div>
-    <ButtomModal title="Try now" />
     <div class="footer">
         <Footer />
     </div>
@@ -55,7 +54,32 @@ import Dialogflow from "~/components/Dialogflow.astro";
             padding: 0px;
             width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
+        }
+        .banner {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .list-square {
+            list-style-type: square;
+            padding-left: 20px; /* Ajuste del espacio entre el borde izquierdo y los elementos de la lista */
+        }
+
+        .list-square li {
+            position: relative; /* Necesario para posicionar los pseudoelementos */
+            padding: 5px 0;
+        }
+
+        li::before {
+            content: ""; /* Crea un pseudoelemento vacío */
+            position: absolute; /* Posiciona el pseudoelemento de forma absoluta */
+            left: -20px; /* Ajusta la posición del cuadrado */
+            top: 50%; /* Centra el cuadrado verticalmente */
+            transform: translateY(-50%); /* Centra el cuadrado verticalmente */
+            width: 10px; /* Ancho del cuadrado */
+            height: 10px; /* Altura del cuadrado */
+            background-color: #000000; /* Color del cuadrado (tomato) */
         }
     </style>
 </MarkdownLayout>

@@ -68,10 +68,25 @@ import arrow from "~/assets/arrow-down.svg";
 </style>
 
 <script>
+    import { sql } from '~/store';
+    
     window.addEventListener("DOMContentLoaded", (event) => {
-        const chat_bubble = document.querySelector("df-messenger-chat-bubble");
+        const chat_bubble = document.querySelector("df-messenger-chat-bubble") as HTMLElement;
+        if (sql.get() !== '') {
+            chat_bubble.style.display = 'flex';
+        } else {
+            chat_bubble.style.display = 'none';
+        }
 
-        if (chat_bubble) {
+        // Suscribirse a cambios en el átomo sql
+        sql.subscribe((newSql) => {
+            if (newSql !== '') {
+                chat_bubble.style.display = 'flex';
+            } else {
+                chat_bubble.style.display = 'none';
+            }
+        });
+        if (chat_bubble && sql.get() !== '') {
             const shadowRootBubble = chat_bubble.shadowRoot;
 
             if (shadowRootBubble) {
@@ -90,7 +105,6 @@ import arrow from "~/assets/arrow-down.svg";
                 ) {
                     titlebar.style.backgroundColor = "black";
                     titlebar.style.color = "white";
-                    console.log(titlebar, button);
                     button.style.backgroundColor = "black"; // Cambia el color de fondo del botón
                     button.style.color = "white"; // Cambia el color del texto del botón
                 }
@@ -98,20 +112,15 @@ import arrow from "~/assets/arrow-down.svg";
         }
     });
     document.addEventListener("df-request-sent", function (event) {
-        console.log(event);
         if (event instanceof CustomEvent) {
             const token = localStorage.getItem("token");
             const originalMessage =
                 event.detail.data.requestBody.queryInput.text.text;
             const additionalMessage = ` [${token}]`; // Define tu mensaje por defecto aquí
             const modifiedMessage = originalMessage + additionalMessage;
-
             // Modificar el mensaje en el evento antes de enviarlo
             event.detail.data.requestBody.queryInput.text.text =
                 modifiedMessage;
-
-            console.log("Mensaje original:", originalMessage);
-            console.log("Mensaje modificado:", modifiedMessage);
         }
     });
 </script>

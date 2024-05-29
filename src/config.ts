@@ -6,7 +6,7 @@ export const SiteTitle = 'Yipao';
 export const SiteDescription = 'Social';
 export const FooterDescription = 'Made with ♥';
 export const AdminName = 'Dannkol';
-export const PageSize = 15;
+export const PageSize = 14;
 
 // socialPlatform => userName
 // check components/Header.astro socialConfig for more info

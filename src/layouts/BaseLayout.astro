@@ -135,4 +135,8 @@ const socialImg = new URL(socialImage ?? '/og.png', Astro.url).href;
 	<body class:list={bodyClass}>
 		<slot />
 	</body>
+	<script>
+		import { sql } from '~/store';
+		sql.set('')
+	</script>
 </html>
