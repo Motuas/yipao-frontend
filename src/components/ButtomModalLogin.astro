@@ -7,8 +7,8 @@ const hostServer = import.meta.env.HOST_SERVER;
 const { title } = Astro.props;
 ---
 
-
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" type="module"
+></script>
 
 <!-- Modal toggle -->
 <button
@@ -139,17 +139,39 @@ const { title } = Astro.props;
                 data[key] = value;
             });
 
-            axios.post(`${hostServer}/v1/login`, data)
+            axios
+                .post(`${hostServer}/v1/login`, data)
                 .then((response: any) => {
-                    console.log('Respuesta del servidor:', response.data);
+                    console.log("Respuesta del servidor:", response.data);
                     // Guardar el token en localStorage
                     if (response.data && response.data.res) {
-                        localStorage.setItem('token', response.data.res);
-                        console.log('Token guardado en localStorage:', response.data.res);
+                        axios
+                            .get(`${hostServer}/v1/me`, {
+                                headers: {
+                                    Authorization: `Bearer ${response.data.res}`,
+                                },
+                            })
+                            .then((response: any) => {
+                                console.log(
+                                    "Respuesta del servidor:",
+                                    response.data
+                                );
+                                localStorage.setItem(
+                                    "token",
+                                    response.data.body.store
+                                );
+                                console.log(
+                                    "Token guardado en localStorage:",
+                                    response.data.body.store
+                                );
+                            })
+                            .catch((error: any) => {
+                                console.error("Error:", error);
+                            });
                     }
                 })
                 .catch((error: any) => {
-                    console.error('Error al enviar el formulario:', error);
+                    console.error("Error al enviar el formulario:", error);
                 });
         });
     }

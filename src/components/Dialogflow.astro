@@ -103,7 +103,7 @@ import arrow from "~/assets/arrow-down.svg";
             const token = localStorage.getItem("token");
             const originalMessage =
                 event.detail.data.requestBody.queryInput.text.text;
-            const additionalMessage = ` [kiritoMHYDm:sZ020xZ1f18tsxL$%@24.199.111.101:3306/inpos_ayudakarla2]`; // Define tu mensaje por defecto aquí
+            const additionalMessage = ` [${token}]`; // Define tu mensaje por defecto aquí
             const modifiedMessage = originalMessage + additionalMessage;
 
             // Modificar el mensaje en el evento antes de enviarlo
