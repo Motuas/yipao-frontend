@@ -15,7 +15,7 @@ import arrow from "~/assets/arrow-down.svg";
         oauth-client-id="825961708967-tiasdinvr7789tk0qurrlabiuqtgep7v.apps.googleusercontent.com"
         location="us-central1"
         project-id="gen-lang-client-0867205962"
-        agent-id="982e6fd5-07ff-4b1a-9d13-8795b4597f14"
+        agent-id="f81fa917-51a6-468c-94d4-0d73567a0666"
         language-code="es"
         max-query-length="-1"
         allow-feedback="all"
@@ -113,10 +113,10 @@ import arrow from "~/assets/arrow-down.svg";
     });
     document.addEventListener("df-request-sent", function (event) {
         if (event instanceof CustomEvent) {
-            const token = localStorage.getItem("token");
+            //const token = localStorage.getItem("token");
             const originalMessage =
                 event.detail.data.requestBody.queryInput.text.text;
-            const additionalMessage = ` [${token}]`; // Define tu mensaje por defecto aquí
+            const additionalMessage = ` item="${sql.get()}"`; // Define tu mensaje por defecto aquí
             const modifiedMessage = originalMessage + additionalMessage;
             // Modificar el mensaje en el evento antes de enviarlo
             event.detail.data.requestBody.queryInput.text.text =
