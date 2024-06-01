@@ -32,7 +32,7 @@ export const Socials: Record<string, Record<string, string>> = {
 	dingding: { url: 'https://dingtalk.com/userName' },
 	zhihu: { url: 'https://zhihu.com/userName' },
 	douban: { url: 'https://douban.com/userName' }, */
-	rss: { url: '/rss.xml' },
+	rss: { url: `/${Base}/rss.xml` },
 };
 
 // doc: https://giscus.app

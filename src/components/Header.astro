@@ -6,7 +6,7 @@ import Nav from "./Nav.astro";
 import ThemeToggler from "./ThemeToggler.astro";
 import logo from "~/assets/og-logo.png"
 import { Icon } from "astro-icon/components";
-
+import { Base } from "~/config";
 interface Props {
     currentNav?: string;
 }
@@ -86,7 +86,7 @@ for (const platform in Socials) {
         (
             <a
                 transition:persist
-                href="/"
+                href={`/${Base}`}
                 aria-label="go to index"
                 class="w-[4.5rem] text-4xl"
             >

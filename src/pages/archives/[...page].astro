@@ -4,6 +4,7 @@ import Paginator from '~/components/Paginator.astro';
 import { PageSize } from '~/config';
 import ScaffoldLayout from '~/layouts/ScaffoldLayout.astro';
 import { getPosts } from '~/utils/collection';
+import { Base } from '~/config';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 	return paginate(await getPosts(false, 'desc'), { pageSize: PageSize });
@@ -19,7 +20,7 @@ const { page } = Astro.props;
 			return (
 				<div class="flex justify-between">
 					<h5 class="text-xl">
-						<a href={`/posts/${post.slug}`} aria-label={`Read post: ${post.data.title}`}>
+						<a href={`/${Base}/posts/${post.slug}`} aria-label={`Read post: ${post.data.title}`}>
 							{post.data.title}
 						</a>
 					</h5>

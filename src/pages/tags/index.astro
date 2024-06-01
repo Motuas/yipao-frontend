@@ -1,6 +1,7 @@
 ---
 import ScaffoldLayout from '~/layouts/ScaffoldLayout.astro';
 import { getPosts } from '~/utils/collection';
+import { Base } from '~/config';
 
 const tagsCount = new Map<string, number>();
 const posts = await getPosts(false, 'desc');
@@ -16,7 +17,7 @@ for (const post of posts) {
 	<div class="flex flex-wrap items-center justify-center gap-6">
 		{
 			[...tagsCount.entries()].map(([tag, count]) => (
-				<a class="text-lg" href={`/tags/${tag}/1`} aria-label={`More posts of tag ${tag}`}>
+				<a class="text-lg" href={`/${Base}/tags/${tag}/1`} aria-label={`More posts of tag ${tag}`}>
 					{tag}
 					<span class="relative -top-2 text-sm text-zinc-500 dark:text-zinc-400">{count}</span>
 				</a>

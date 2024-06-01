@@ -2,6 +2,7 @@
 import { ViewTransitions } from 'astro:transitions';
 import { SiteLanguage, SiteTitle } from '~/config';
 import 'lxgw-wenkai-screen-web/lxgwwenkaigbscreen/result.css';
+import { Base } from '~/config';
 
 export interface Props {
 	title?: string;
@@ -29,8 +30,8 @@ const socialImg = new URL(socialImage ?? '/og.png', Astro.url).href;
 		<link rel="canonical" href={Astro.url.href} />
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge" />
-		<link rel="icon" href="/favicon.ico" />
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="icon" href=`/${Base}/favicon.ico` />
+		<link rel="apple-touch-icon" href=`/${Base}/apple-touch-icon.png` />
 
 		<!-- Primary Meta Tags -->
 		<title>{title}</title>
@@ -40,13 +41,13 @@ const socialImg = new URL(socialImage ?? '/og.png', Astro.url).href;
 			rel="alternate"
 			type="application/rss+xml"
 			title=`${SiteTitle} RSS Feed`
-			href="/rss.xml"
+			href=`/${Base}/rss.xml`
 		/>
 		<link
 			rel="sitemap"
 			type="application/xml"
 			title=`${SiteTitle} site map`
-			href="/sitemap-index.xml"
+			href=`/${Base}/sitemap-index.xml`
 		/>
 
 		<!-- Open Graph / Facebook -->

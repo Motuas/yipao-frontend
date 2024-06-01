@@ -5,6 +5,7 @@ import { Hide, type HideElements } from '~/config';
 import type { PostHideElements } from '~/content/config';
 import ScaffoldLayout from './ScaffoldLayout.astro';
 import 'katex/dist/katex.css';
+import { Base } from '~/config';
 
 type Props = CollectionEntry<'posts'>['data'] & {
 	currentNav?: string;
@@ -65,7 +66,7 @@ const showTimes = showDate || showLastmod || showReadingTime;
 					{tags.map((tag: string) => (
 						<a
 							class="mr-2 text-xl opacity-80 hover:opacity-100"
-							href={`/tags/${tag}/1`}
+							href={`/${Base}/tags/${tag}/1`}
 							aria-label={`More posts of tag ${tag}`}
 						>
 							{tag}
