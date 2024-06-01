@@ -1,15 +1,16 @@
 ---
+import { Base } from '~/config';
 interface Props {
 	currentNav?: string;
 }
 const { currentNav } = Astro.props;
 
 const navs = [
-	{ name: 'Home', href: '/' },
+	{ name: 'Home', href: `/${Base}` },
 /* 	{ name: 'Blog', href: '/blog' },
 	{ name: 'Tags', href: '/tags' },
 	{ name: 'Archives', href: '/archives' }, */
-	{ name: 'About', href: '/about' },
+	{ name: 'About', href: `/${Base}/about` },
 ];
 ---
 

@@ -20,7 +20,7 @@ import rehypeExternalLinks from "rehype-external-links";
 import rehypeKatax from "rehype-katex";
 import emoji from "remark-emoji";
 import remarkMath from "remark-math";
-import { Site } from "./src/config";
+import { Site, Base } from "./src/config";
 import { getMarkdownEntries } from "./src/utils/post";
 import { remarkPostTime, remarkReadingTime } from "./src/utils/remark";
 import { transformerEnhanser } from "./src/utils/shiki";
@@ -32,6 +32,7 @@ const excludeSitemapFiles = (await getMarkdownEntries()).filter(
 // https://astro.build/config
 export default defineConfig({
     site: Site,
+    base: Base,
     build: {
         format: "file",
     },

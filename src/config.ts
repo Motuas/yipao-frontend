@@ -1,6 +1,7 @@
 import type { PostHideElements } from '~/content/config';
 
-export const Site = 'https://astro-blog-zozo.pages.dev';
+export const Site = 'https://motuas.github.io';
+export const Base = 'yipao-frontend';
 export const SiteLanguage = 'es';
 export const SiteTitle = 'Yipao';
 export const SiteDescription = 'Social';
