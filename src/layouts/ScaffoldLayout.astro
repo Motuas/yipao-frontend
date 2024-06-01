@@ -11,6 +11,11 @@ interface Props {
 	currentNav?: string;
 }
 ---
+<!-- 
+	'py-[2dvh]',
+	'lg:pt-[6dvh]',
+	'lg:pb-[3dvh]', 
+-->
 
 <BaseLayout
 	{...Astro.props}
@@ -21,9 +26,8 @@ interface Props {
 		'flex-col',
 		'justify-between',
 		'min-h-dvh',
+		'lg:min-h-screen',
 		'py-[2dvh]',
-		'lg:pt-[6dvh]',
-		'lg:pb-[3dvh]',
 		'bg-[#f7f7f7]',
 		'bg-local',
 		'dark:bg-[#202124]',
@@ -33,6 +37,11 @@ interface Props {
 	<div
 		class:list={[
 			'mx-auto',
+			'sm:rounded-[20px]',
+			'lg:rounded-[40px]',
+			'md:rounded-[20px]',
+			'p-[1dvw]', 
+			'lg:h-[80%]',
 			'flex',
 			'w-[90dvw]',
 			'max-w-[1400px]',
@@ -48,7 +57,8 @@ interface Props {
 		]}
 	>
 		<Header currentNav={Astro.props.currentNav} />
-		<main class="px-[2dvw] pt-[2dvh] lg:pt-[6dvh]">
+		<!-- pt-[2dvh] lg:pt-[6dvh] -->
+		<main class="px-[2dvw]">
 			<slot />
 		</main>
 	</div>

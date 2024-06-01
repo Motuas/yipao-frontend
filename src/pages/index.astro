@@ -14,7 +14,7 @@ import Dialogflow from "~/components/Dialogflow.astro";
     hide={["title"]}
     currentNav="Home"
 >
-    <div class="flex flex-col items-center gap-4 xl:flex-row">
+    <div class="flex flex-col items-center gap-8 xl:flex-row">
         <div class="banner">
             <Picture
                 class="lg:max-w-md"
@@ -25,25 +25,28 @@ import Dialogflow from "~/components/Dialogflow.astro";
             />
             <ButtomModal title="Try now" />
         </div>
-        <div>
-            <h1>Welcome to yipao! We are yipao👋</h1>
-            <p>
-                Yipao is a tool developed by the facilpos team <a
-                    href="https://astro.build">facilpos</a
-                > with the aim of enhancing our POS system by integrating an agent
-                for business intelligence (BI) with simple and powerful features:
-            </p>
-            <ul class="list-square">
-                <li>Understanding of the SQL database.</li>
-                <li>Execution of SQL queries.</li>
-                <li>Business analysis.</li>
-                <li>Low code and easy to use.</li>
-                <li>Suggestions and advice based on performed queries.</li>
-            </ul>
+        <div class="banner">
+            <div>
+                <h1>Welcome to yipao! We are yipao👋</h1>
+                <p>
+                    Yipao is a tool developed by the facilpos team <a
+                        href="https://astro.build">facilpos</a
+                    > with the aim of enhancing our POS system by integrating an
+                    agent for business intelligence (BI) with simple and powerful
+                    features:
+                </p>
+                <ul class="list-square">
+                    <li>Understanding of the SQL database.</li>
+                    <li>Execution of SQL queries.</li>
+                    <li>Business analysis.</li>
+                    <li>Low code and easy to use.</li>
+                    <li>Suggestions and advice based on performed queries.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <Footer />
+            </div>
         </div>
-    </div>
-    <div class="footer">
-        <Footer />
     </div>
     <div>
         <Dialogflow />
