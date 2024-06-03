@@ -1,19 +1,19 @@
 {
-  "name": "astro-blog-zozo",
+  "name": "yipao-frontend",
   "version": "0.0.3",
   "author": {
-    "name": "Ladit",
-    "email": "i@ladit.me",
-    "url": "https://github.com/ladit"
+    "name": "motuas",
+    "email": "nelsonfabiancs8@gmail.com",
+    "url": "https://github.com/Motuas"
   },
-  "homepage": "https://github.com/ladit/astro-blog-zozo",
+  "homepage": "https://github.com/Motuas/yipao-frontend",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ladit/astro-blog-zozo.git"
+    "url": "git+https://github.com/Motuas/yipao-frontend.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ladit/astro-blog-zozo/issues"
+    "url": "https://github.com/Motuas/yipao-frontend/issues"
   },
   "type": "module",
   "engines": {

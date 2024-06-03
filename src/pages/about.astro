@@ -5,38 +5,95 @@ import MarkdownLayout from '~/layouts/MarkdownLayout.astro';
 ---
 
 <MarkdownLayout title="About" description="About this site." currentNav="About">
-	<Picture
-		class="lg:float-right lg:ml-4 lg:w-2/5"
-		src={img}
-		formats={['avif', 'webp']}
-		alt="mountains"
-	/>
-	<p>Text placeholder via <a href="https://jeffsum.com/" target="_blank">Jeffsum</a>.</p>
-	<p>
-		So you two dig up, dig up dinosaurs? What do they got in there? King Kong? My dad once told me,
-		laugh and the world laughs with you, Cry, and I'll give you something to cry about you little
-		bastard! Life finds a way. God creates dinosaurs. God destroys dinosaurs. God creates Man. Man
-		destroys God. Man creates Dinosaurs.
-	</p>
-	<p>
-		You really think you can fly that thing? You know what? It is beets. I've crashed into a beet
-		truck. Forget the fat lady! You're obsessed with the fat lady! Drive us out of here! Is this my
-		espresso machine? Wh-what is-h-how did you get my espresso machine?
-	</p>
-	<p>
-		Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Hey, take a
-		look at the earthlings. Goodbye! I was part of something special. Just my luck, no ice. You're a
-		very talented young man, with your own clever thoughts and ideas. Do you need a manager?
-	</p>
-	<p>
-		Jaguar shark! So tell me - does it really exist? This thing comes fully loaded. AM/FM radio,
-		reclining bucket seats, and... power windows. Yes, Yes, without the oops! You're a very talented
-		young man, with your own clever thoughts and ideas. Do you need a manager?
-	</p>
-	<p>
-		Yes, Yes, without the oops! Do you have any idea how long it takes those cups to decompose.
-		They're using our own satellites against us. And the clock is ticking. Do you have any idea how
-		long it takes those cups to decompose. My dad once told me, laugh and the world laughs with you,
-		Cry, and I'll give you something to cry about you little bastard!
-	</p>
+	<h2>Inspiration</h2>
+    <p>
+        The inspiration for <strong>Yipao</strong> stemmed from the frustration of managing and querying large SQL databases. Many businesses struggle with data analysis, often spending countless hours trying to derive meaningful insights from their data. We envisioned a solution that would not only simplify this process but also leverage the power of AI to enhance query efficiency and accuracy.
+    </p>
+    <p>
+        The name <em>Yipao</em> is derived from the Jeep parade, a folkloric celebration in Colombia where jeeps carry an excessive number of items and perform acrobatics. We believe Yipao embodies this spirit by being the AI that can handle a massive SQL database effortlessly, performing complex operations and making data management a breeze. Yipao was born out of a desire to bridge the gap between complex data management and user-friendly AI tools.
+    </p>
+
+    <h2>What it does</h2>
+    <p>
+        Yipao is a revolutionary open-source Python library developed in this hackathon (<a href="https://pypi.org/project/yipao/">https://pypi.org/project/yipao/</a>) that facilitates AI-driven interactions with SQL databases. It allows users to generate and execute SQL queries dynamically using natural language, essentially enabling users to chat with their databases. This chat functionality transforms Yipao into a personal data analyst for each user, providing tailored insights and making data interaction more intuitive and accessible.
+    </p>
+    <p>
+        Yipao integrates seamlessly with Google services ensures that users can leverage the full power of Google's advanced AI technologies, enhancing the efficiency and accuracy of their data operations. Yipao's ability to retrieve, analyze, and visualize data effortlessly makes it a powerful tool for businesses aiming to harness the full potential of their data.
+    </p>
+
+    <h2>How we built it</h2>
+    <p>
+        Yipao was developed using a combination of advanced technologies and a carefully designed architecture to ensure robust performance and seamless functionality. The development process is illustrated in the following scheme:
+    </p>
+    <ol>
+        <li>
+            <strong>Dialogflow and Vertex AI Agent Builder Integration:</strong>
+            <ul>
+                <li>Users interact with Yipao through Dialogflow, which processes natural language inputs.</li>
+                <li>Dialogflow sends these inputs to Vertex AI Agent Builder, where prompt rewriting occurs to refine and optimize the queries.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Decision Making:</strong>
+            <ul>
+                <li>The refined queries are then passed through a decision-making module that determines the appropriate action: initializing a connection, documenting the database, or performing inference.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Yipao Core Functionality:</strong>
+            <ul>
+                <li>Yipao connects to the SQL database and executes SQL queries dynamically. It supports various operations such as initialization (<code>INIT</code>), documentation (<code>DOCUMENT</code>), and inference (<code>INFERENCE</code>).</li>
+                <li>Yipao's API facilitates these interactions, ensuring seamless communication between the AI components and the database.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Vectorstore and Retrieval-Augmented Generation (RAG):</strong>
+            <ul>
+                <li>Yipao integrates with vector databases through the Vectorstore, enhancing the retrieval process.</li>
+                <li>The RAG model, powered by Google Generative AI (Gemini), is used to augment and improve the accuracy of data retrieval and query responses.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Execution and Information Retrieval:</strong>
+            <ul>
+                <li>Once the SQL query is generated, it is executed on the database.</li>
+                <li>The results are then processed and returned to the user, providing precise and actionable insights.</li>
+            </ul>
+        </li>
+    </ol>
+    <p>
+        This architecture allows Yipao to leverage the strengths of Google Cloud services, delivering a powerful and efficient tool for data analysis. The iterative development and rigorous testing ensured that Yipao meets the highest standards of performance and reliability.
+    </p>
+
+    <h2>Challenges we ran into</h2>
+    <p>
+        We encountered several challenges during the development of Yipao. One significant issue was working with Dialogflow, as we had not used it previously. However, we soon discovered that Dialogflow is a powerful tool for natural language processing, which greatly enhanced our project's capabilities.
+    </p>
+    <p>
+        Another challenge involved the API certification process to ensure the agent could use it through OpenAPI. Initially, this presented some difficulties, but by following detailed tutorials and leveraging community resources, we were able to resolve these issues effectively. Overcoming these obstacles not only improved our technical skills but also reinforced the robustness of Yipao's architecture.
+    </p>
+
+    <h2>Accomplishments that we're proud of</h2>
+    <p>
+        We are immensely proud of several key accomplishments in the development of Yipao. First and foremost, we successfully created a tool that significantly simplifies data analysis by enabling natural language interactions with SQL databases. This breakthrough allows users to manage and query their data intuitively, making advanced data analysis accessible to everyone. Additionally, our seamless integration with Google Cloud services, such as Vertex AI and Dialogflow, showcases the powerful synergy between Yipao and leading AI technologies. This integration not only enhances Yipao's performance but also leverages the full potential of AI to deliver precise and actionable insights. Furthermore, our team overcame substantial technical challenges, demonstrating resilience and a commitment to innovation. The positive feedback from initial users has validated our vision, and seeing Yipao in action, solving real-world data problems, is a testament to the hard work and dedication of our team. We believe Yipao has the potential to revolutionize data analysis, and we are excited about the future possibilities it holds.
+    </p>
+
+    <h2>What we learned</h2>
+    <p>
+        Throughout the development of Yipao, we gained invaluable lessons in teamwork and project management. We learned how to collaborate more effectively as a team, particularly under tight deadlines, ensuring that each member's strengths were leveraged to achieve our common goal. Constant testing and iterative improvements became integral to our workflow, helping us to quickly identify and resolve issues.
+    </p>
+    <p>
+        We also embraced the challenge of exploring new technologies, such as Dialogflow and the intricacies of AI-driven SQL interactions. The process of creating a Python library from scratch was an enlightening experience, teaching us the nuances of software development and library management. Additionally, we recognized the importance of fostering an open-source community, understanding that collaboration and community engagement are key to the growth and success of any project. These lessons have not only enhanced our technical skills but also prepared us for future endeavors in the tech industry.
+    </p>
+
+    <h2>What's next for Yipao</h2>
+    <p>
+        The future of Yipao is incredibly promising. We plan to continue enhancing the library by expanding its capabilities and integrations. One of our primary goals is to deepen Yipao's integration with Google Cloud services, leveraging the latest advancements in AI and machine learning to provide even more powerful and efficient data analysis tools. This includes further utilizing Vertex AI, Dialogflow, and other Google Cloud technologies to enhance Yipao's performance and user experience.
+    </p>
+    <p>
+        In addition, we aim to broaden Yipao's real-world applications by integrating it with various business intelligence platforms and industry-specific solutions. This will allow businesses to seamlessly incorporate Yipao into their existing workflows, providing them with unparalleled data insights and operational efficiencies. We are also working on adding more features, such as support for additional SQL dialects, enhanced natural language processing capabilities, and more robust security measures to ensure data integrity and privacy.
+    </p>
+    <p>
+        Our vision for Yipao extends beyond just a tool; we aim to build a thriving open-source community around it.
+    </p>
 </MarkdownLayout>
